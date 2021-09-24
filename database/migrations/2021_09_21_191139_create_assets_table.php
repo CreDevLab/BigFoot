@@ -20,8 +20,8 @@ class CreateAssetsTable extends Migration
             $table->string('filename');
             $table->string('url');
             $table->enum('access', ["public", "private", "shared"]);
-            $table->timestamps($precision = 0);
             $table->string('title')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
