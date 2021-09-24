@@ -1,0 +1,17 @@
+name: bigfoot
+recipe: laravel
+config:
+  webroot: public
+  php: '8.0'
+  cache: redis
+services:
+  appserver:
+    build:
+      - composer install
+    run:
+      - composer install
+      - artisan migrate
+  node:
+    type: node
+    build:
+      - npm install
